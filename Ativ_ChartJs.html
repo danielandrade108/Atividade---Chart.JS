@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando o ChartJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+    font-family: arial;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10%;
+    background-color: rgb(214, 214, 214);
+}
+
+.container {
+    flex-direction: column;
+    text-align: center;
+    font-size: 30px;
+}
+
+.graficos {
+    border: solid gray 2px;
+    border-radius: 10px;
+    width: 800px;
+    margin-top: 15px;
+}
+span {
+    border: solid gray 2px;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+  </style>
+
+</head>
+
+<body>
+    <div class="container">
+      <span>Tabela de Temperatura</span>
+        <canvas class="graficos" id="chartBar"></canvas>
+    </div>
+    <div class="container">
+      <span>Tabela de Umidade</span>
+        <canvas class="graficos" id="chartLine"></canvas>
+    </div>
+    
+</body>
+
+</html>
+
+<script>
+    const barra = document.getElementById('chartBar');
+  
+    new Chart(barra, {
+      type: 'bar',
+      data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+        datasets: [{
+          label: 'Temperatura Média',
+          data: [22, 24, 27, 23, 20, 18],
+          borderWidth: 1
+        },
+        {
+            label: 'Umidade Média',
+            data: [90, 89, 93, 87, 88, 82],
+            borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const linha = document.getElementById('chartLine');
+  
+  new Chart(linha, {
+    type: 'line',
+    data: {
+      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+      datasets: [{
+        label: 'Temperatura Média',
+        data: [22, 24, 27, 23, 20, 18],
+        borderWidth: 1
+      },
+      {
+          label: 'Umidade Média',
+          data: [90, 89, 93, 87, 88, 82],
+          borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+  </script>
